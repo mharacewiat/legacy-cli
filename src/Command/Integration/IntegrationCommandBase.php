@@ -419,9 +419,14 @@ abstract class IntegrationCommandBase extends CommandBase
                     'sumologic',
                     'splunk',
                     'webhook',
-                    'otlp',
                 ]],
                 'description' => 'The URL or API endpoint for the integration',
+            ]),
+            'log_endpoint' => new UrlField('Log Endpoint', [
+                'conditions' => ['type' => [
+                    'otlp',
+                ]],
+                'description' => 'OTLP-compatible endpoint for forwarding logs',
             ]),
             'shared_key' => new Field('Shared key', [
                 'conditions' => ['type' => [
